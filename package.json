@@ -1,0 +1,21 @@
+{
+  "name": "stele-pointcloud-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "gen:data": "node scripts/generate-pointcloud.mjs",
+    "gen:rescan": "node scripts/gen-rescan.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:logic": "esbuild scripts/test-logic.ts --bundle --platform=node --format=esm --outfile=dist-test/test-logic.mjs && node dist-test/test-logic.mjs",
+    "bench:compare": "esbuild scripts/bench-compare.ts --bundle --platform=node --format=esm --outfile=dist-test/bench.mjs && node dist-test/bench.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}
